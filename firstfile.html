@@ -2,11 +2,39 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
+<div ng-app="myApp" ng-controller="myCtrl">
 
-<div ng-app="">
-    <p>Name: <input type="text" ng-model="name"></p>
-    <p ng-bind="name"></p>
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
+
+    <div ng-controller="myCtrl2">
+
+        First Name: <input type="text" ng-model="firstName2"><br>
+        Last Name: <input type="text" ng-model="lastName2"><br>
+        <br>
+        Full Name: {{firstName2 + " " + lastName2}}
+
+    </div>
+
 </div>
+
+
+
+<script>
+    //change foir commit testing
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName= "John";
+        $scope.lastName= "Doe";
+    });
+
+    app.controller('myCtrl2', function($scope) {
+        $scope.firstName2= "Purnima";
+        $scope.lastName2= "A";
+    });
+</script>
 
 </body>
 </html>
